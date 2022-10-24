@@ -1,0 +1,14 @@
+name: Countercurrent_Separations
+title: Countercurrent_Separations
+username:
+account: dthdpu
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7382784
+bundleId: 6428331
+url: https://dthdpu.shinyapps.io/Countercurrent_Separations/
+when: 1666384243.03211
+lastSyncTime: 1666384243.03213
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: introduction.Rmd|www/cce.ai
