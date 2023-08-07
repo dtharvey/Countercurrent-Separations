@@ -1,0 +1,53 @@
+---
+output: html_document
+---
+
+<!-- The following script makes it possible to use the mhchem -->
+<!-- latex package in a .Rmd file and to knit it into an .html file -->
+<!-- the font size is scaled to 90% to match text -->
+
+```{=html}
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+    extensions: ["[Contrib]/mhchem/mhchem.js"]
+}
+});
+MathJax.Hub.Config({ 
+        "HTML-CSS": { scale: 90 }, 
+        SVG: { linebreaks: { automatic:true } }, 
+ });
+</script>
+```
+
+<!-- text for wrapping up -->
+
+The simulation of a CCE separation in this module is limited to 100 tubes and steps, which is not enough to separate many mixtures of solutes when the solutes have values of *p* that are similar to each other. Given a sufficient number of tubes and steps, however, we can separate any mixture of two (or more) solutes. As a method for separating solutes, a countercurrent extraction is impractical. It is a useful model, however, for a chromatographic separation in which a stationary phase remains within a column and a mobile phase passes through the column.
+
+#### Another Visualization of CCE Separation
+
+The figure on the right provides another view of a countercurrent extraction in the form of a video file. Each step in the video takes one second, which is much faster than the actual time required, which is on the order of several minutes per step. The resolution of the individual images that make up the video are not as good as the resolution of the simulation on the previous tab even though the same code is used for both.
+
+#### Simulating a Countercurrent Extraction
+
+The fraction of a solute that moves from the stationary phase into the mobile phase is *p* and the fraction that remains in the stationary phase is *q*, where $p + q = 1$. This should remind you of the odds associated with rolling several dice and, indeed, both follow a binomial distribution. The fraction of solute in tube *t* at the end of *s* steps, $f(t,s)$ is
+$$f(t,s) = \frac{s!}{(s-t)!t!} \times p^{t} \times q^{s-t}$$
+where $s \ge t$. This binomial equation is used to simulate the countercurrent extractions on the `Tubes and Steps` tab and on the `Visualizing a CCE` tab.
+
+A binomial distribution has a well-defined mean and standard deviation. After completing $n$ steps, the mean of a solute's distribution is $\mu = np$, and its standard deviation is $\sigma = \sqrt{n p q}$ where $p$ and $q$ have their usual meanings. Try this. Use the `Visualizing a CCE` tab to model the countercurrent extraction of a mixture of solute A with $p = 0.2$ and solute B with $p = 0.8$ and estimate, after 100 steps, the mean and standard deviation for each solute's distribution. Then, calculate their expected means and standard deviations using a binomial distribution. How do your results compare to each other?
+
+#### Comparing CCE to LLE
+
+If you have worked on the `AC3.0: Liquid-Liquid Extractions` module, then you may have asked yourself why this module uses $p$ and $q$ instead of $D$, the distribution ratio. We know from the LLE module that for any step---and in the LLE module we assigned this to the aqueous phase---the fraction of solute not extracted is
+$$(Q_{aq})_1 = \frac{(\text{mol aq})_1}{(\text{mol aq})_0} = \frac{V_{aq}}{DV_{org} + V_{aq}}$$
+If $V_{aq} = V_{org}$, which is the case for CCE, this simplifies to
+$$(Q_{aq})_1 = q = \frac{1}{D+1}$$
+
+#### Additional Resources
+
+You can learn more about countercurrent extractions in [Appendix 16 of Analytical Chemistry 2.1](https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Analytical_Chemistry_2.1_(Harvey)/16%3A_Appendix/16.16%3A_Countercurrent_Separations), and you can learn more about binomical distributions in [Chapter 5 of Chemometrics with R](https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Chemometrics_Using_R_(Harvey)/05%3A_The_Distribution_of_Data). Both resources are available from the [LibreText Project](https://libretexts.org/).
+
+Another browser-based application illustrating countercurrent extraction is available [here](http://195.134.76.37/applets/AppletCraig/Appl_Craig2.html).
+
+
+

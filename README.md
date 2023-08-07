@@ -1,7 +1,7 @@
 # Countercurrent-Separations
- 
-A one-page application in more traditional textual form that models a countercurrent separation of two analytes. The distribution ratios for each analyte are set by the user and the progress of the separation viewed by manually stepping through the separation, or as an animation.  
 
+Introduces students to counter-current extractions as a method for separating two solutes from each other. The distribution ratios for each solute are set by the user and the progress of the extraction viewed manually by examining the separation after a user-selected number of steps. The simulation is limited to 100 tubes and 100 steps.
+ 
 To run locally, install the package Shiny (if not already installed), and enter the following two lines into the console:
 
 library(shiny)

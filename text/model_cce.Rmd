@@ -1,0 +1,39 @@
+---
+output: html_document
+---
+
+<!-- The following script makes it possible to use the mhchem -->
+<!-- latex package in a .Rmd file and to knit it into an .html file -->
+<!-- the font size is scaled to 90% to match text -->
+
+```{=html}
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+    extensions: ["[Contrib]/mhchem/mhchem.js"]
+}
+});
+MathJax.Hub.Config({ 
+        "HTML-CSS": { scale: 90 }, 
+        SVG: { linebreaks: { automatic:true } }, 
+ });
+</script>
+```
+
+<!-- text for activity 2 -->
+
+On the previous tab you considered one way to visualize a solvent's movement in a countercurrent extraction: a figure that shows the fraction of solute in each tube at each step as both a numerical value and as the shading of a square that represents a tube. Although effective, this visualization is limited by the space needed to display steps and tubes, and is limited to a single solute.
+
+The figure on the right is a more compact way to display a countercurrent extraction, in this case for two solutes, A and B, using up to 100 tubes and 100 steps. Sliders are used, for each solute, to define the fraction of solute, *p*, that moves from the stationary phase into the mobile phase. A third slider displays the contents of each tube (aligned along the *x*-axis) after the designated number of steps.
+
+**Exercise 1.** The default settings is $p = 0.2$ for solute A, $p = 0.8$ for solute B, and 100 steps. Adjust the slider for steps to 10 and describe the distribution of each solute across the tubes giving attention to shape, height, and width. Repeat for steps of 20, 30, 40, 50, 60, 70, 80, 90, and 100. Is there a relationship between *p*, the number of steps, and the position of the solute's distribution?
+
+**Exercise 2.** Using the default conditions, determine the fewest number of steps that will allow for an effective separation of the two solutes. Give some thought to how you choose to define an effective separation.
+
+**Exercise 3.** Use the slider for solute A and determine the largest value of *p* that will allow for an effective separation of the two solutes after 100 steps if $p = 0.8$ for solute B. Repeat for solute B, determining the smallest value of *p* that will allow for an effective separation of the two solutes after 100 steps if $p = 0.2$ for solute A. 
+
+**Exercise 4.** Given our limitation of 100 steps, is it possible to achieve a complete separation of two solutes if one solute has $p = 0.2$ and the other solute has $p = 0.25$?
+
+
+
+

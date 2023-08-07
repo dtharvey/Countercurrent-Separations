@@ -1,0 +1,47 @@
+---
+output: html_document
+---
+
+<!-- The following script makes it possible to use the mhchem -->
+<!-- latex package in a .Rmd file and to knit it into an .html file -->
+<!-- the font size is scaled to 90% to match text -->
+
+```{=html}
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+    extensions: ["[Contrib]/mhchem/mhchem.js"]
+}
+});
+MathJax.Hub.Config({ 
+        "HTML-CSS": { scale: 90 }, 
+        SVG: { linebreaks: { automatic:true } }, 
+ });
+</script>
+```
+
+<!-- text for activity 1 -->
+
+The table below shows the movement of a solute through the first four steps of a countercurrent extraction. Each row is a step, which involves shaking the contents of each tube to extract a portion, *p*, of the solute from the stationary phase into the mobile phase, and then shifting each tube's mobile phase along to the next tube in line. Each column gives the solute's relative concentration in each tube at the end of the step. The entries in the table are taken from the figure included with this module's introduction.
+
+```{r, echo=FALSE, results="asis"}
+library(knitr)
+col_one = c(1,"q","q^2","???")
+col_two = c("—", "p","2pq","???")
+col_three = c("—","—","p^2","???")
+col_four = c("???","???","???","???")
+df = data.frame(col_one,col_two,col_three, col_four)
+colnames(df) = c("tube 0", "tube 1", "tube 2", "tube 3")
+rownames(df) = c("step 0", "step 1", "step 2", "step 3")
+kable(df)
+```
+
+The figure to the right shows the relative amount of solute in the first six tubes at the end of the first six steps. The fraction of solute extracted from the stationary phase into the mobile phase, *p*, is set by the slider; the fraction of solute that remains in the stationary phase, *q*, is equal to $1-p$. The fraction of solute in each tube at each step is shown both quantitatively and qualitativity: as a number between 0 and 1, and by the shading of the blue color that represents the solute.
+
+**Exercise 1.** Examine the entries in the table above and identify any patterns you see in the rows and/or columns, and then predict the entries for column 3 and for row 3 (which are listed as ???).
+
+**Exercise 2.** Using the values in this figure for $p = q = 0.5$, verify that your answers for Exercise 1 are correct.
+
+**Exercise 3.** Use the slider to explore how the value of *p* affects the solute's movement with the mobile phase. What do you see when $p = 0$? What do you see when $p = 1$? What is the largest value of *p* for which no solute reaches tube 5? What is the smallest value of *p* for which some solute remains in tube 0 at the end of step 5?
+
+

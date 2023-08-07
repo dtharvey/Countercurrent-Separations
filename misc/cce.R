@@ -6,11 +6,11 @@
 # r is indexed value for a tube
 
 # function to calculate fraction of solutes in each phase at each step
-cce = function(d.a = 5, d.b = 0.5, steps = 50){
-  q.a = 1/(d.a + 1)
-  q.b = 1/(d.b + 1)
-  p.a = 1 - q.a
-  p.b = 1 - q.b
+cce = function(p.a = 0.2, p.b = 0.8, steps = 50){
+  # q.a = 1/(d.a + 1)
+  # q.b = 1/(d.b + 1)
+  q.a = 1 - p.a
+  q.b = 1 - p.b
   f.a = matrix(0, steps, steps)
   f.b = matrix(0, steps, steps)
   for (n in 1:steps){
@@ -43,37 +43,37 @@ cce.step = function(x, steps = 1){
 }
 
 # function to draw distribution of both solutes at end of separation
-cce.final = function(x){
-  plot(x$fractionA[, x$steps], 
-       ylim = c(0, max(c(x$fractionA[ , x$steps], 
-                         x$fractionB[, x$steps], 1 - sum(x$fractionA[, x$steps]), 1 - sum(x$fractionB[, x$steps])), na.rm = TRUE)), 
-       xlab = "tube number", ylab = "fraction", 
-       type = "h", col = "blue", lwd = 6)
-  points(x = 0, y = 1 - sum(x$fractionA[, x$steps]), 
-         type = "h", col = "blue", lwd = 6)
-  points(x$fractionB[, x$steps], type = "h", col = "green", lwd = 2)
-  points(x = 0, y = 1 - sum(x$fractionB[, x$steps]), 
-         type = "h", col = "green", lwd = 2)
-  legend(x = "topright", legend = c("A", "B"), 
-         lwd = c(6, 2), col = c("blue", "green"), bty = "n")
-}
+# cce.final = function(x){
+#   plot(x$fractionA[, x$steps], 
+#        ylim = c(0, max(c(x$fractionA[ , x$steps], 
+#                          x$fractionB[, x$steps], 1 - sum(x$fractionA[, x$steps]), 1 - sum(x$fractionB[, x$steps])), na.rm = TRUE)), 
+#        xlab = "tube number", ylab = "fraction", 
+#        type = "h", col = "blue", lwd = 6)
+#   points(x = 0, y = 1 - sum(x$fractionA[, x$steps]), 
+#          type = "h", col = "blue", lwd = 6)
+#   points(x$fractionB[, x$steps], type = "h", col = "green", lwd = 2)
+#   points(x = 0, y = 1 - sum(x$fractionB[, x$steps]), 
+#          type = "h", col = "green", lwd = 2)
+#   legend(x = "topright", legend = c("A", "B"), 
+#          lwd = c(6, 2), col = c("blue", "green"), bty = "n")
+# }
 
 # function to animate the separation across all steps
-cce.animate = function(x){
-  for (i in 1:x$steps) {
-    plot(x$fractionA[, i], xlim = c(1, x$steps), 
-         ylim = c(0, 1), xlab = "tube number", 
-         ylab = "fraction", type = "h", col = "blue", lwd = 6)
-    points(x = 0, y = 1 - sum(x$fractionA[, x$steps]), 
-           type = "h", col = "blue", lwd = 6)
-    points(x$fractionB[, i], type = "h", col = "green", lwd = 2)
-    points(x = 0, y = 1 - sum(x$fractionB[, x$steps]), 
-           type = "h", col = "green", lwd = 2)
-    legend(x = "topright", legend = c("A", "B"), 
-           lwd = 3, col = c("blue", "green"), bty = "n")
-    Sys.sleep(0.1)
-  }
-}
+# cce.animate = function(x){
+#   for (i in 1:x$steps) {
+#     plot(x$fractionA[, i], xlim = c(1, x$steps), 
+#          ylim = c(0, 1), xlab = "tube number", 
+#          ylab = "fraction", type = "h", col = "blue", lwd = 6)
+#     points(x = 0, y = 1 - sum(x$fractionA[, x$steps]), 
+#            type = "h", col = "blue", lwd = 6)
+#     points(x$fractionB[, i], type = "h", col = "green", lwd = 2)
+#     points(x = 0, y = 1 - sum(x$fractionB[, x$steps]), 
+#            type = "h", col = "green", lwd = 2)
+#     legend(x = "topright", legend = c("A", "B"), 
+#            lwd = 3, col = c("blue", "green"), bty = "n")
+#     Sys.sleep(0.1)
+#   }
+# }
 
 # separation of two weak acids
 cce.ab = function(kd.a = 9, pka.a = 5, kd.b = 9, pka.b = 8, pH = 7, steps = 50){

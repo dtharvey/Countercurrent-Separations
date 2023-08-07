@@ -5,36 +5,91 @@ library(shinythemes)
 
 ui = navbarPage("AC 3.0: Countercurrent Separation",
                 theme = shinytheme("journal"),
-                tags$head(
+                header = tags$head(
                   tags$link(rel = "stylesheet",
                             type = "text/css",
                             href = "style.css")
       ),
-      tabPanel("Visualizing a Countercurrent Extraction",
+      tabPanel("Introduction",
        fluidRow(
          column(width = 6,
           wellPanel(
-            includeHTML("introduction.html")
+            includeHTML("text/introduction.html")
       )      
       ),
          column(width = 6,
                 align = "center",
-          splitLayout(
-            sliderInput("d.a", "distribution ratio for solute A",
-                        min = 0.1, max = 10, value = 0.5, step = 0.1,
-                        width = "200px"),
-            sliderInput("d.b", "distribution ratio for solute B",
-                        min = 0.1, max = 10, value = 5, step = 0.1, 
-                        width = "200px"),
-            sliderInput("steps", "step number",
-                        min = 1, max = 100, value = 1, step = 1,
-                        width = "200px", 
-                        animate = animationOptions(interval = 250))
-      ),
-      plotOutput("cce_plot", height = "400px"),
+                br(),
+                br(),
+                br(),
+                br(),
       img(src = "cce.png", width = "100%")
       )
       )
+      ),
+      tabPanel("Tubes and Steps",
+               fluidRow(
+                 column(width = 6,
+                        wellPanel(
+                          includeHTML("text/tubes_steps.html")
+                        )      
+                 ),
+                 column(width = 6,
+                        align = "center",
+                        splitLayout(
+                          sliderInput("prob", "extraction probability (p)",
+                                      min = 0, max = 1, value = 0.5, 
+                                      step = 0.01, ticks = FALSE,
+                                      width = "250px")
+                        ),
+                        plotOutput("prob_plot", height = "750px"),
+                        ))),
+      
+      tabPanel("Visualizing a CCE",
+               fluidRow(
+                 column(width = 6,
+                        wellPanel(
+                          includeHTML("text/model_cce.html")
+                        )),
+                 column(width = 6,
+                        align = "center",
+                        splitLayout(
+                          sliderInput("p.a",
+                                      "p for solute A",
+                                      min = 0, max = 1, value = 0.2,
+                                      step = 0.01, ticks = FALSE,
+                                      width = "200px"
+                                      ),
+                          sliderInput("p.b",
+                                      "p for solute B",
+                                      min = 0, max = 1, value = 0.8,
+                                      step = 0.01, ticks = FALSE,
+                                      width = "200px"),
+                          sliderInput("steps", 
+                                      "step number",
+                                      min = 1, max = 100, value = 100,
+                                      step = 1, ticks = FALSE, 
+                                      width = "200px")
+                        ),
+                        plotOutput("cce_plot", height = "600px")
+               ))),
+      
+      tabPanel("Wrapping Up",
+               fluidRow(
+                 column(width = 6,
+                        wellPanel(id = "wrapuppanel",
+                                  style = "overflow-y:scroll; max-height:750px",
+                                  includeHTML("text/wrapup.html")
+                        )             
+                 ),
+                 column(width = 6,
+                        align = "center",
+                        tags$video(src = "aniCCE.mp4", 
+                                   type = "video/mp4", 
+                                   width = "100%", 
+                                   controls = "controls")
+                 )
+               )
       )
          
       ) # close user interface
