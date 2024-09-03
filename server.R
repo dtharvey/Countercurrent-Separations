@@ -56,7 +56,29 @@ shinyServer(function(input, output, session){
   
   output$cce_plot = renderPlot({
     cce.step(cce_results(), steps = input$steps)
-             
+
+  })
+  
+  output$cce_grid = renderPlot({
+    cce_vis_data = cce(p.a = 0.83, p.b = 0.33, steps = 100)
+    old.par = par(mfrow = c(3,3))
+    step_number = c(10,20,30,40,50,60,70,80,90)
+    for (i in 1:9){
+      plot(x = cce_vis_data$fractionA[, step_number[i]],
+           xlab = "tube number", 
+           ylim = c(0,0.35), ylab = "fraction",
+           type = "h", col = 6, lwd = 3,
+           main = paste("Step: ", step_number[i]))
+      points(x = 0, y = 1 - sum(cce_vis_data$fractionA[, step_number[i]]),
+             type = "h", col = 6, lwd = 3)
+      points(cce_vis_data$fractionB[, step_number[i]],
+             type = "h", col = 8, lwd = 3)
+      points(x = 0, y = 1 - sum(cce_vis_data$fractionB[, step_number[i]]),
+             type = "h", col = 8, lwd = 3)
+      legend(x = "topright", legend = c("A","B"),
+             lwd = 3, col = c(6,8), bty = "n")
+      grid()
+    }
   })
   
 })

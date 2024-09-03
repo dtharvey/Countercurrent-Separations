@@ -32,15 +32,13 @@ cce.step = function(x, steps){
        xlab = "tube number", ylab = "fraction", 
        type = "h", col = 6, lwd = 6,
        main = paste("Step Number: ", steps)) 
-  points(x = 0, y = 1 - sum(x$fractionA[, steps]), 
+  points(x = 0, y = 1 - sum(x$fractionA[, steps]),
          type = "h", col = 6, lwd = 6)
-  points(x$fractionB[, steps], type = "h", col = 7, lwd = 3)
-  points(x = 0, y = 1 - sum(x$fractionB[, steps]), 
-         type = "h", col = 7, lwd = 3)
+  points(x$fractionB[, steps], type = "h", col = 8, lwd = 3)
+  points(x = 0, y = 1 - sum(x$fractionB[, steps]),
+         type = "h", col = 8, lwd = 3)
   legend(x = "topright", legend = c("A","B"), 
-         lwd = c(6,3), col = c(6, 7), bty = "n")
+         lwd = c(6,3), col = c(6, 8), bty = "n")
   grid()
   
 }
-
-

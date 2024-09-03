@@ -1,46 +1,35 @@
 ---
-output: html_document
+output: html_fragment
 ---
-
-<!-- The following script makes it possible to use the mhchem -->
-<!-- latex package in a .Rmd file and to knit it into an .html file -->
-<!-- the font size is scaled to 90% to match text -->
-
-```{=html}
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: {
-    extensions: ["[Contrib]/mhchem/mhchem.js"]
-}
-});
-MathJax.Hub.Config({ 
-        "HTML-CSS": { scale: 90 }, 
-        SVG: { linebreaks: { automatic:true } }, 
- });
-</script>
-```
 
 <!-- text for wrapping up -->
 
-The simulation of a CCE separation in this module is limited to 100 tubes and steps, which is not enough to separate many mixtures of solutes when the solutes have values of *p* that are similar to each other. Given a sufficient number of tubes and steps, however, we can separate any mixture of two (or more) solutes. As a method for separating solutes, a countercurrent extraction is impractical. It is a useful model, however, for a chromatographic separation in which a stationary phase remains within a column and a mobile phase passes through the column.
+#### Is a Countercurrent Extraction Practical?
+
+The simulation of a CCE separation in this module is limited to 100 tubes and steps, which is not enough to separate mixtures of solutes when their values of *p* are similar to each other. Given a sufficient number of tubes and steps, however, we can separate any mixture of two (or more) solutes. As a method for separating solutes, a countercurrent extraction is impractical. It is a useful model, however, for a chromatographic separation in which a stationary phase remains within a column and a mobile phase passes through the column.
 
 #### Another Visualization of CCE Separation
 
-The figure on the right provides another view of a countercurrent extraction in the form of a video file. Each step in the video takes one second, which is much faster than the actual time required, which is on the order of several minutes per step. The resolution of the individual images that make up the video are not as good as the resolution of the simulation on the previous tab even though the same code is used for both.
+The figure on the right provides another view of a countercurrent extraction in the form of a $3 \times 3$ grid of the separation of solute A ($p_a = 0.83)$ from solute B ($p_b = 0.330$ at nine different moments in the separation. Unlike the animated CCE experiment on the previous tab, the *y*-axis scale here is held constant, which makes it easier to appreciate how the time a solute spends moving through the system affects its position, shape, height, and width. 
 
 #### Simulating a Countercurrent Extraction
 
-The fraction of a solute that moves from the stationary phase into the mobile phase is *p* and the fraction that remains in the stationary phase is *q*, where $p + q = 1$. This should remind you of the odds associated with rolling several dice and, indeed, both follow a binomial distribution. The fraction of solute in tube *t* at the end of *s* steps, $f(t,s)$ is
+The fraction of a solute that moves from the stationary phase into the mobile phase is *p* and the fraction that remains in the stationary phase is *q*, where $p + q = 1$. This should remind you of the odds associated with flipping a coin 10 times and having heads come up seven times; indeed, both follow a binomial distribution. The fraction of solute in tube *t* at the end of *s* steps, $f(t,s)$ is
+
 $$f(t,s) = \frac{s!}{(s-t)!t!} \times p^{t} \times q^{s-t}$$
-where $s \ge t$. This binomial equation is used to simulate the countercurrent extractions on the `Tubes and Steps` tab and on the `Visualizing a CCE` tab.
 
-A binomial distribution has a well-defined mean and standard deviation. After completing $n$ steps, the mean of a solute's distribution is $\mu = np$, and its standard deviation is $\sigma = \sqrt{n p q}$ where $p$ and $q$ have their usual meanings. Try this. Use the `Visualizing a CCE` tab to model the countercurrent extraction of a mixture of solute A with $p = 0.2$ and solute B with $p = 0.8$ and estimate, after 100 steps, the mean and standard deviation for each solute's distribution. Then, calculate their expected means and standard deviations using a binomial distribution. How do your results compare to each other?
+where $s \ge t$. This binomial equation was used to simulate the countercurrent extractions in this module.
 
-#### Comparing CCE to LLE
+A binomial distribution has a well-defined mean and standard deviation. After $n$ steps, the mean of a solute's distribution is $\mu = np$, and its standard deviation is $\sigma = \sqrt{n p q}$ where $p$ and $q$ have their usual meanings. Try this. Return to the previous tab and model the countercurrent extraction of a mixture of solute A, with $p_a = 0.2$, and solute B with $p = 0.8$, and estimate, after 100 steps, the mean and standard deviation for each solute's distribution. Then, calculate their expected means and standard deviations using a binomial distribution. How do your results compare to each other?
 
-If you have worked on the `AC3.0: Liquid-Liquid Extractions` module, then you may have asked yourself why this module uses $p$ and $q$ instead of $D$, the distribution ratio. We know from the LLE module that for any step---and in the LLE module we assigned this to the aqueous phase---the fraction of solute not extracted is
+#### Comparing a CCE to a LLE
+
+If you have worked on the module on liquid-liquid extractions, then you may have asked yourself why this module uses $p$ and $q$ instead of $D$, the distribution ratio. We know from the LLE module that for any step---and in the LLE module we assigned this to the aqueous phase---the fraction of solute not extracted is
+
 $$(Q_{aq})_1 = \frac{(\text{mol aq})_1}{(\text{mol aq})_0} = \frac{V_{aq}}{DV_{org} + V_{aq}}$$
+
 If $V_{aq} = V_{org}$, which is the case for CCE, this simplifies to
+
 $$(Q_{aq})_1 = q = \frac{1}{D+1}$$
 
 #### Additional Resources

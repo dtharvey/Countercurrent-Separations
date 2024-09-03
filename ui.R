@@ -3,7 +3,7 @@
 library(shiny)
 library(shinythemes)
 
-ui = navbarPage("AC 3.0: Countercurrent Separation",
+ui = navbarPage("AC 3.0: Countercurrent Extraction",
                 theme = shinytheme("journal"),
                 header = tags$head(
                   tags$link(rel = "stylesheet",
@@ -12,6 +12,7 @@ ui = navbarPage("AC 3.0: Countercurrent Separation",
       ),
       tabPanel("Introduction",
        fluidRow(
+         withMathJax(),
          column(width = 6,
           wellPanel(
             includeHTML("text/introduction.html")
@@ -31,7 +32,7 @@ ui = navbarPage("AC 3.0: Countercurrent Separation",
                fluidRow(
                  column(width = 6,
                         wellPanel(
-                          includeHTML("text/tubes_steps.html")
+                          includeHTML("text/activity1.html")
                         )      
                  ),
                  column(width = 6,
@@ -49,27 +50,29 @@ ui = navbarPage("AC 3.0: Countercurrent Separation",
                fluidRow(
                  column(width = 6,
                         wellPanel(
-                          includeHTML("text/model_cce.html")
+                          includeHTML("text/activity2.html")
                         )),
                  column(width = 6,
                         align = "center",
                         splitLayout(
                           sliderInput("p.a",
                                       "p for solute A",
-                                      min = 0, max = 1, value = 0.2,
+                                      min = 0, max = 1, value = 0.83,
                                       step = 0.01, ticks = FALSE,
                                       width = "200px"
                                       ),
                           sliderInput("p.b",
                                       "p for solute B",
-                                      min = 0, max = 1, value = 0.8,
+                                      min = 0, max = 1, value = 0.33,
                                       step = 0.01, ticks = FALSE,
                                       width = "200px"),
                           sliderInput("steps", 
                                       "step number",
-                                      min = 1, max = 100, value = 100,
+                                      min = 1, max = 100, value = 50,
                                       step = 1, ticks = FALSE, 
-                                      width = "200px")
+                                      width = "200px",
+                                      animate = TRUE,
+                                      animationOptions(interval = 100))
                         ),
                         plotOutput("cce_plot", height = "600px")
                ))),
@@ -84,10 +87,7 @@ ui = navbarPage("AC 3.0: Countercurrent Separation",
                  ),
                  column(width = 6,
                         align = "center",
-                        tags$video(src = "aniCCE.mp4", 
-                                   type = "video/mp4", 
-                                   width = "100%", 
-                                   controls = "controls")
+                        plotOutput("cce_grid", height = "600px")    
                  )
                )
       )
