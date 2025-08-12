@@ -4,20 +4,20 @@ output: html_fragment
 
 <!-- text for introduction -->
 
-One limitation of a liquid-liquid extraction is that it is difficult to separate solutes with similar chemical properties as they are likely to have similar solubilities in the two liquid phases. Another approach is a countercurrent extraction (CCE), the details of which are illustrated in the figure on the right. 
+$\require{mhchem}$One limitation of a liquid-liquid extraction is that it is difficult to separate solutes with similar chemical properties. Another approach is the countercurrent extraction illustrated on the right.
 
 #### Step 0: The Intial Set-Up
 
-Imagine a line of tubes labeled from tube 0 to tube $n$. Each tube holds an equal volume of a solvent that contains a solute we want to extract into a different solvent. We add a portion of the second solvent to tube 0. Because the solvents are immiscible, one is layered below the other; we call these solvents the lower phase and the upper phase. At this point---which we call step 0---the solute is present only in the lower phase of tube 0; thus, its fraction in the lower phase is 1 and its fraction in tube 0 is 1. This is the state of the system at the top of the figure.
+Imagine a line of tubes labeled from $0$ to $n$. Each has the same volume of a solvent and the tube labeled $0$ also contains a solute. To tube $0$ we add a second solvent. Because the solvents are immiscible, one is layered below the other. We call these the lower phase and the upper phase. At this point---which is step $0$---the solute is only in the lower phase of tube $0$; thus, its fraction in the lower phase is 1 and its fraction in tube $0$ is 1. This is the state of the system at the top of the figure.
 
 #### Step 1: Shake, Extract, and Shift
 
-Next we shake tube 0 and extract a fraction *p* of the solute into the upper phase and retain a fraction $q = 1 - p$ of the solute in the lower phase. We then transfer, or shift, the upper phase from tube 0 to tube 1 and add a fresh portion of the upper phase to tube 0. At the end of step 1, tube 0 contains a fraction *q* of the solute and tube 1 contains a fraction *p* of the solute. This is the state of the system at the middle of the figure.
+Next we shake tube $0$ and extract a fraction *p* of the solute into the upper phase and retain a fraction $q = 1 - p$ of the solute in the lower phase. We then transfer, or shift, the upper phase from tube $0$ to tube 1 and add a fresh portion of the upper phase to tube $0$. At the end of step 1, tube $0$ contains a fraction *q* of the solute and tube 1 contains a fraction *p* of the solute. This is the state of the system at the middle of the figure.
 
 #### Step 2: Repeat Shake, Extract, and Shift
 
-This process of extracting the solute between the lower phase and the upper phase, and shifting the upper phase down the line of tubes continues. At the end of step , tube 0 contains a fraction $q^2$ of the solute, tube 1 contains a fraction $2pq$ of the solute, and tube 2 contains a fraction $p^2$ of the solute. This is the state of the system at the bottom of the figure. 
+This process of extracting the solute between the lower phase and the upper phase, and shifting the upper phase down the line of tubes continues. At the end of step 2, tube $0$ contains a fraction $q^2$ of the solute, tube 1 contains a fraction $2pq$ of the solute, and tube 2 contains a fraction $p^2$ of the solute. This is the state of the system at the bottom of the figure.
 
 #### Stationary and Mobile Phases
 
-Did you notice the difference in how we described the two phases? Our description of the upper phase is active in that we transfer the solvent down the line of tubes. Our description of the lower phase, however, is passive in that the solvent in the lower phase always remains in its original tube. The lower phase is stationary and the upper phase is mobile, terms we will encounter in modules on chromatographic methods of analysis.
+Did you notice that our description of the upper phase is active in that we transfer the solvent down the line of tubes. Our description of the lower phase, however, is passive in that the solvent in the lower phase always remains in its original tube. The lower phase is stationary and the upper phase is mobile, terms we will encounter in modules on chromatographic methods of analysis.

@@ -4,62 +4,66 @@
 <!-- text for wrapping up -->
 <div id="is-a-countercurrent-extraction-practical" class="section level4">
 <h4>Is a Countercurrent Extraction Practical?</h4>
-<p>The simulation of a CCE separation in this module is limited to 100
-tubes and steps, which is not enough to separate mixtures of solutes
-when their values of <em>p</em> are similar to each other. Given a
-sufficient number of tubes and steps, however, we can separate any
-mixture of two (or more) solutes. As a method for separating solutes, a
-countercurrent extraction is impractical. It is a useful model, however,
-for a chromatographic separation in which a stationary phase remains
-within a column and a mobile phase passes through the column.</p>
+<p>The simulation of a CCE separation in this module is limited to <span class="math inline">\(100\)</span> tubes and steps, which is not enough
+to separate mixtures of solutes when their values of <em>p</em> are
+similar to each other. Given a sufficient number of tubes and steps we
+can separate any mixture of solutes; however, as a method for separating
+solutes, a countercurrent extraction is impractical. It is a useful
+model, however, for a chromatographic separation in which a stationary
+phase remains within a column and a mobile phase passes through the
+column.</p>
 </div>
-<div id="another-visualization-of-cce-separation" class="section level4">
-<h4>Another Visualization of CCE Separation</h4>
+<div id="another-visualization-of-a-cce-separation" class="section level4">
+<h4>Another Visualization of a CCE Separation</h4>
 <p>The figure on the right provides another view of a countercurrent
 extraction in the form of a <span class="math inline">\(3 \times
-3\)</span> grid of the separation of solute A (<span class="math inline">\(p_a = 0.83)\)</span> from solute B (<span class="math inline">\(p_b = 0.330\)</span> at nine different moments in
+3\)</span> grid of the separation of solute A (with <span class="math inline">\(p_a = 0.83)\)</span> from solute B (with <span class="math inline">\(p_b = 0.330\)</span>) at nine different moments in
 the separation. Unlike the animated CCE experiment on the previous tab,
-the <em>y</em>-axis scale here is held constant, which makes it easier
-to appreciate how the time a solute spends moving through the system
+the <em>y</em>-axis scale here remains fixed, which makes it easier to
+appreciate how the time a solute spends moving through the system
 affects its position, shape, height, and width.</p>
 </div>
 <div id="simulating-a-countercurrent-extraction" class="section level4">
 <h4>Simulating a Countercurrent Extraction</h4>
-<p>The fraction of a solute that moves from the stationary phase into
-the mobile phase is <em>p</em> and the fraction that remains in the
+<p>The fraction of solute that moves from the stationary phase into the
+mobile phase is <em>p</em> and the fraction that remains in the
 stationary phase is <em>q</em>, where <span class="math inline">\(p + q
 = 1\)</span>. This should remind you of the odds associated with
-flipping a coin 10 times and having heads come up seven times; indeed,
-both follow a binomial distribution. The fraction of solute in tube
-<em>t</em> at the end of <em>s</em> steps, <span class="math inline">\(f(t,s)\)</span> is</p>
+flipping a coin <span class="math inline">\(10\)</span> times and having
+heads come up seven times; indeed, both follow a binomial distribution.
+The fraction of solute in tube <em>t</em> at the end of <em>s</em>
+steps, <span class="math inline">\(f(t,s)\)</span> is</p>
 <p><span class="math display">\[f(t,s) = \frac{s!}{(s-t)!t!} \times
 p^{t} \times q^{s-t}\]</span></p>
 <p>where <span class="math inline">\(s \ge t\)</span>. This binomial
 equation was used to simulate the countercurrent extractions in this
 module.</p>
 <p>A binomial distribution has a well-defined mean and standard
-deviation. After <span class="math inline">\(n\)</span> steps, the mean
-of a solute’s distribution is <span class="math inline">\(\mu =
-np\)</span>, and its standard deviation is <span class="math inline">\(\sigma = \sqrt{n p q}\)</span> where <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> have their usual meanings. Try this.
+deviation. After <span class="math inline">\(n\)</span> steps, the mean,
+<span class="math inline">\(\mu\)</span>, of a solute’s distribution is
+<span class="math inline">\(\mu = np\)</span>, and its standard
+deviation, <span class="math inline">\(\sigma\)</span>, is <span class="math inline">\(\sigma = \sqrt{n p q}\)</span> where <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> have their usual meanings. Try this.
 Return to the previous tab and model the countercurrent extraction of a
 mixture of solute A, with <span class="math inline">\(p_a =
 0.2\)</span>, and solute B with <span class="math inline">\(p =
-0.8\)</span>, and estimate, after 100 steps, the mean and standard
+0.8\)</span>, and estimate, after <span class="math inline">\(100\)</span> steps, the mean and standard
 deviation for each solute’s distribution. Then, calculate their expected
 means and standard deviations using a binomial distribution. How do your
 results compare to each other?</p>
 </div>
 <div id="comparing-a-cce-to-a-lle" class="section level4">
 <h4>Comparing a CCE to a LLE</h4>
-<p>If you have worked on the module on liquid-liquid extractions, then
-you may have asked yourself why this module uses <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> instead of <span class="math inline">\(D\)</span>, the distribution ratio. We know from
-the LLE module that for any step—and in the LLE module we assigned this
-to the aqueous phase—the fraction of solute not extracted is</p>
+<p>If you have worked on the learning module that covers liquid-liquid
+extractions, then you may have asked yourself why this module uses <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> instead of <span class="math inline">\(D\)</span>, the distribution ratio. We know from
+the LLE learning module that for any step—and in the LLE learning module
+we assigned this to the aqueous phase—the fraction of solute not
+extracted is</p>
 <p><span class="math display">\[(Q_{aq})_1 = \frac{(\text{mol
 aq})_1}{(\text{mol aq})_0} = \frac{V_{aq}}{DV_{org} +
 V_{aq}}\]</span></p>
 <p>If <span class="math inline">\(V_{aq} = V_{org}\)</span>, which is
-the case for CCE, this simplifies to</p>
+the case for the countercurrent extractions in this learning module,
+this simplifies to</p>
 <p><span class="math display">\[(Q_{aq})_1 = q =
 \frac{1}{D+1}\]</span></p>
 </div>

@@ -1,4 +1,4 @@
-# countercurrent extraction
+# ui.R for countercurrent extraction
 
 library(shiny)
 library(shinythemes)
@@ -10,14 +10,17 @@ ui = navbarPage("AC 3.0: Countercurrent Extraction",
                             type = "text/css",
                             href = "style.css")
       ),
+# introduction
       tabPanel("Introduction",
        fluidRow(
          withMathJax(),
          column(width = 6,
           wellPanel(
+            class = "scrollable-well",
+            div(
+              class = "html-fragment",
             includeHTML("text/introduction.html")
-      )      
-      ),
+      ))),
          column(width = 6,
                 align = "center",
                 br(),
@@ -25,16 +28,18 @@ ui = navbarPage("AC 3.0: Countercurrent Extraction",
                 br(),
                 br(),
       img(src = "cce.png", width = "100%")
-      )
-      )
-      ),
+      ))),
+
+# first activity
       tabPanel("Tubes and Steps",
                fluidRow(
                  column(width = 6,
                         wellPanel(
+                          style = "scrollable-well",
+                          div(
+                            class = "html-fragment",
                           includeHTML("text/activity1.html")
-                        )      
-                 ),
+                        ))),
                  column(width = 6,
                         align = "center",
                         splitLayout(
@@ -43,15 +48,18 @@ ui = navbarPage("AC 3.0: Countercurrent Extraction",
                                       step = 0.01, ticks = FALSE,
                                       width = "250px")
                         ),
-                        plotOutput("prob_plot", height = "750px"),
+                        plotOutput("prob_plot", height = "650px"),
                         ))),
-      
+# second activity
       tabPanel("Visualizing a CCE",
                fluidRow(
                  column(width = 6,
                         wellPanel(
+                          class = "scrollable-well",
+                          div(
+                            class = "html-fragment",
                           includeHTML("text/activity2.html")
-                        )),
+                        ))),
                  column(width = 6,
                         align = "center",
                         splitLayout(
@@ -74,22 +82,22 @@ ui = navbarPage("AC 3.0: Countercurrent Extraction",
                                       animate = TRUE,
                                       animationOptions(interval = 100))
                         ),
-                        plotOutput("cce_plot", height = "600px")
+                        plotOutput("cce_plot", height = "500px")
                ))),
-      
+
+# wrapping up
       tabPanel("Wrapping Up",
                fluidRow(
                  column(width = 6,
-                        wellPanel(id = "wrapuppanel",
-                                  style = "overflow-y:scroll; max-height:750px",
-                                  includeHTML("text/wrapup.html")
-                        )             
-                 ),
+                        wellPanel(
+                          class = "scrollable-well",
+                          div(
+                            class = "html-fragment",
+                            includeHTML("text/wrapup.html")
+                        ))),
                  column(width = 6,
                         align = "center",
                         plotOutput("cce_grid", height = "600px")    
-                 )
-               )
-      )
+                 )))
          
       ) # close user interface
