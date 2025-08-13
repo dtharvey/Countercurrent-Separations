@@ -8,16 +8,16 @@ $\require{mhchem}$One limitation of a liquid-liquid extraction is that it is dif
 
 #### Step 0: The Intial Set-Up
 
-Imagine a line of tubes labeled from $0$ to $n$. Each has the same volume of a solvent and the tube labeled $0$ also contains a solute. To tube $0$ we add a second solvent. Because the solvents are immiscible, one is layered below the other. We call these the lower phase and the upper phase. At this point---which is step $0$---the solute is only in the lower phase of tube $0$; thus, its fraction in the lower phase is 1 and its fraction in tube $0$ is 1. This is the state of the system at the top of the figure.
+Imagine a line of tubes labeled from $0$ to $n$, each with the same volume of solvent; tube $0$ also contains a solute. To tube $0$ we add a second solvent. Because the solvents are immiscible, one is layered below the other. We call these the lower phase and the upper phase. At this point---which is step $0$---the solute is only in the lower phase of tube $0$; thus, its fraction in the lower phase is 1 and its fraction in tube $0$ is 1. 
 
 #### Step 1: Shake, Extract, and Shift
 
-Next we shake tube $0$ and extract a fraction *p* of the solute into the upper phase and retain a fraction $q = 1 - p$ of the solute in the lower phase. We then transfer, or shift, the upper phase from tube $0$ to tube 1 and add a fresh portion of the upper phase to tube $0$. At the end of step 1, tube $0$ contains a fraction *q* of the solute and tube 1 contains a fraction *p* of the solute. This is the state of the system at the middle of the figure.
+Next we shake tube $0$ and extract a fraction *p* of the solute into the upper phase and retain a fraction $q = 1 - p$ of the solute in the lower phase. We then shift the upper phase from tube $0$ to tube 1 and add a fresh portion of upper phase to tube $0$. At the end of step 1, tube $0$ contains a fraction *q* of the solute and tube 1 contains a fraction *p* of the solute. 
 
 #### Step 2: Repeat Shake, Extract, and Shift
 
-This process of extracting the solute between the lower phase and the upper phase, and shifting the upper phase down the line of tubes continues. At the end of step 2, tube $0$ contains a fraction $q^2$ of the solute, tube 1 contains a fraction $2pq$ of the solute, and tube 2 contains a fraction $p^2$ of the solute. This is the state of the system at the bottom of the figure.
+The process of shaking, extracting, and shifting continues. At the end of step 2, tube $0$ contains a fraction $q^2$ of the solute, tube 1 contains a fraction $2pq$ of the solute, and tube 2 contains a fraction $p^2$ of the solute.
 
 #### Stationary and Mobile Phases
 
-Did you notice that our description of the upper phase is active in that we transfer the solvent down the line of tubes. Our description of the lower phase, however, is passive in that the solvent in the lower phase always remains in its original tube. The lower phase is stationary and the upper phase is mobile, terms we will encounter in modules on chromatographic methods of analysis.
+Did you notice that our description of the upper phase is active in that we transfer the solvent down the line of tubes. Our description of the lower phase is passive in that the solvent in the lower phase always remains in its original tube. The lower phase is stationary and the upper phase is mobile, terms we will encounter in modules on chromatographic methods of analysis.

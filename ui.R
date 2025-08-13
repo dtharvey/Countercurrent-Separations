@@ -35,7 +35,7 @@ ui = navbarPage("AC 3.0: Countercurrent Extraction",
                fluidRow(
                  column(width = 6,
                         wellPanel(
-                          style = "scrollable-well",
+                          class = "scrollable-well",
                           div(
                             class = "html-fragment",
                           includeHTML("text/activity1.html")
@@ -48,7 +48,7 @@ ui = navbarPage("AC 3.0: Countercurrent Extraction",
                                       step = 0.01, ticks = FALSE,
                                       width = "250px")
                         ),
-                        plotOutput("prob_plot", height = "650px"),
+                        plotOutput("prob_plot", height = "600px"),
                         ))),
 # second activity
       tabPanel("Visualizing a CCE",
